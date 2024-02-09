@@ -13,8 +13,3 @@
 
 ## TODO
 * Implement applications
-* Figure out why the node info div is accruing instances
-    * Run a query
-    * Click on a node and close the box
-    * run query again
-    * Click on a node. You will have to click close 2x to make the box close now.

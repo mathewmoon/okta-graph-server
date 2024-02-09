@@ -2,6 +2,7 @@
 from argparse import ArgumentParser
 import logging
 import os
+from re import compile
 
 import okta_graph.api
 from okta_graph.plugins import AWSNodePlugin
@@ -10,7 +11,11 @@ from okta_graph.api import OktaGraphServer
 from okta_graph.cache import OktaFileCache
 
 
-logging.getLogger("botocore").setLevel("WARN")
+logger_match = compile(".*(boto3|urllib|botocore).*")
+
+for name in logging.Logger.manager.loggerDict.keys():
+    if logger_match.match(name):
+        logging.getLogger(name).setLevel(logging.CRITICAL)
 
 
 OKTA_TOKEN = os.environ["OKTA_TOKEN"]

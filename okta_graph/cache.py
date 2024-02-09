@@ -122,7 +122,7 @@ class OktaCache(ABC):
 
         while True:
             while i <= self.refresh_interval:
-                if self.status == "Terminating":
+                if self.status in ("Terminating", "Complete"):
                     if self.persist:
                         await self.__persist_cache()
                     self.__set_status("Terminated")
@@ -133,6 +133,9 @@ class OktaCache(ABC):
                 await self.__load_group_cache()
             except Exception as e:
                 LOGGER.exception(e)
+
+            if self.status in ("Terminated", "Complete"):
+                return
 
             try:
                 await self.__load_rule_cache()

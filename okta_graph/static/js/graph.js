@@ -185,16 +185,6 @@ function make_info_table(node, event) {
     return $div
 }
 
-function load_map_handlers() {
-    $("body").on("click", "area", function(event) {
-        if (this.id === selectedArea) {
-            return
-        }
-        selectedArea = this.id
-        $div = make_info_table(this, event)
-        close_unpinned(true, [this.id])
-    })
-}
 
 function toggle_report(op) {
     if (op == "hide" && $("#report_div_wrapper").is(":visible")) {
@@ -226,6 +216,15 @@ function copy_to_clipboard(data, source) {
 $("document").ready(function(){
 
     $("span.bi").tooltip()
+
+    $("body").on("click", "area", function(event) {
+        if (this.id === selectedArea) {
+            return
+        }
+        selectedArea = this.id
+        $div = make_info_table(this, event)
+        close_unpinned(true, [this.id])
+    })
 
     $("body").on("click", "td.node_info_value", function(event){
         id = "node_value_input_copy"

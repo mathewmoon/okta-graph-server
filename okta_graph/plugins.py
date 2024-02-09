@@ -95,12 +95,14 @@ class NodePlugin(ABC):
 
         while True:
             while i <= self.refresh_interval:
-                if self.status == "Terminating":
+                if self.status in ("Terminating", "Complete"):
                     self.__set_status("Terminated")
                     return
                 i += 0.25
                 await asyncio.sleep(0.25)
 
+            if self.status in ("Terminated", "Complete"):
+                return
             try:
                 if self.use_async_loader:
                     await self.load()
