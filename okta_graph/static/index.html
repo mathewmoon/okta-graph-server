@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <!--
+        <link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+        -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href="/static/css/jsoneditor.css" rel="stylesheet" type="text/css">    
+        <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+        <script src="/static/js/jsoneditor.js"></script>
+        <script src="/static/js/graph.js"></script>
+        <script src="/static/js/profile-editor.js"></script>
+
+    </head>
+    <body>
+        <div id="main" class="main" style="display:flex;">
+            <div id="nav" class="nav">
+                <div id="legend" class="nav">
+                    <h4 class="legend nav">Legend</h4>
+                    <!-- <div id="legend_directions">Click on a node icon to view info about groups and rules</div> -->
+                    <table id="legend" class="nav">
+                        <tr>
+                            <td class="legend_image"><img class="legend" src="/static/icons/rule.png"></td><td>Okta Rule</td>
+                            <td class="legend_image"><img class="legend" src="/static/icons/manual_group.png"></td><td>Manual Group Assignment</td>
+                        </tr>
+                        <tr>
+                            <td class="legend_image"><img class="legend" src="/static/icons/aws.png"></td><td>AWS Okta Group</td>
+                            <td class="legend_image"><img class="legend" src="/static/icons/group.png"></td><td>Okta Group</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr>
+                <!-- JSON Editor will be inserted into #profile_editor div -->
+                <div id="profile_editor" class="nav">
+                    <h4>Configure Profile
+                        <!-- tooltip will be populated by JS -->
+                       <span class="bi bi-question-circle input_help" title=""></span>
+                    </h4>
+                </div><br>
+                <div id="profile_editor_controls">
+                    <button id="generate_graph" class="nav ui-button ui-widget ui-corner-all">Generate</button>
+                    <button id="download_report" class="nav ui-button ui-widget ui-corner-all">Download Report</button>
+                </div>
+            </div>
+            <div id="graph_div">
+                <div id="report_div_wrapper">
+                    <span id="report_controls">
+                        <span class="bi bi-cloud-download report_download_button" title="Download JSON file"></span>    
+                        <span class="bi bi-clipboard-plus report_copy_button" title="Copy to clipboard"></span>    
+                        <span class="bi bi-x-lg report_close_button" title="Close"></span>    
+                    </span>
+                    <div id="report_div"></div>
+                </div>
+                <map id="cmap" name="Okta"></map>
+                <!-- Graph Image will be inserted here -->
+            </div>
+        </div>
+    </body>
+</html>
