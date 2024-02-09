@@ -13,3 +13,4 @@
 
 ## TODO
 * Implement applications
+* Pagination for AWS calls

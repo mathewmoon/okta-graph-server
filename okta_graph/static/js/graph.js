@@ -22,7 +22,6 @@ function insert_graph(data) {
     image.useMap = "#cmap"
 
     $("#graph_div").append(image)
-    load_map_handlers()
 
     report_json = JSON.stringify(data.report_json, null, 2)
     $("#report_div").html(`<p><pre>${report_json}</pre></p>`)
