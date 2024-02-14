@@ -146,7 +146,7 @@ class OktaGraph:
 
             return node
         else:
-            return self.get_node(name)[0]
+            return self.graph.get_node(name)[0]
 
     @classmethod
     def make_tooltip(cls, data: Dict[str, Dict]) -> str:
