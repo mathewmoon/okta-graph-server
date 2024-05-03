@@ -7,6 +7,7 @@ from typing import Any, Dict, List
 import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import FileResponse
 
 from . import LOGGER
@@ -39,6 +40,16 @@ class OktaGraphServer:
         self.app.mount(
             "/static", StaticFiles(directory=self.static_content_dir), name="static"
         )
+        self.app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+        @self.app.options("/graph")
+        async def _() -> None:
+            """Returns an empty response to allow for CORS requests"""
+            return None
 
         @self.app.get("/")
         async def _() -> FileResponse:

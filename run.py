@@ -64,7 +64,7 @@ def main():
         node_plugin=plugin,
     )
 
-    server.run(reload=False)
+    server.run(reload=False, port=8000)
 
 
 if __name__ == "__main__":

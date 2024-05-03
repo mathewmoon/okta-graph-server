@@ -115,6 +115,7 @@ class OktaCache(ABC):
         await self.__load_rule_cache()
 
         if not self.threaded:
+            await self.__persist_cache()
             self.__set_status("Complete")
             return
 
