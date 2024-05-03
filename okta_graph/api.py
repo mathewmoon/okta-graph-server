@@ -40,12 +40,14 @@ class OktaGraphServer:
         self.app.mount(
             "/static", StaticFiles(directory=self.static_content_dir), name="static"
         )
+
         self.app.add_middleware(
             CORSMiddleware,
             allow_origins=["*"],
             allow_methods=["*"],
             allow_headers=["*"],
         )
+
         @self.app.options("/graph")
         async def _() -> None:
             """Returns an empty response to allow for CORS requests"""
