@@ -2,7 +2,7 @@
 from os import makedirs
 from time import sleep
 from contextlib import asynccontextmanager
-from typing import Any, Dict, List
+from typing import AsyncGenerator, Any, Dict, List
 
 import uvicorn
 from fastapi import FastAPI
@@ -75,7 +75,7 @@ class OktaGraphServer:
             return res.model_dump()
 
     @asynccontextmanager
-    async def __lifespan(self, _: FastAPI) -> None:
+    async def __lifespan(self, _: FastAPI) -> AsyncGenerator[None, None]:
         """
         Manages the lifespan for the FastAPI app
         """

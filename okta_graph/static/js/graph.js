@@ -30,7 +30,7 @@ function insert_graph(data) {
 
 function load_graph(req_data) {
     res = $.ajax({
-        url: "http://localhost:8000/graph",
+        url: "/graph",
         type: "POST",
         contentType: "application/json",
         dataType: "json",
@@ -359,5 +359,3 @@ $("document").ready(function(){
         content: input_help_content
     })
 })
-
-test = ['Name: AWS_Role_HingeSandboxAdmin', 'Type: Okta Group', 'Description: Admin access in Sandbox accounts', 'Group Id: 00gatdh1utKutMVQ2697', 'Group Name: AWS_Role_HingeSandboxAdmin', 'Is Recursion: False', 'AWS Account/Role Assignments:', '  infra-sre-sandbox-1 (574956111507):', '       * HingeAdmin', '  infra-sre-sandbox-2 (238535515044):', '       * HingeAdmin', '']
