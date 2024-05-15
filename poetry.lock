@@ -503,13 +503,13 @@ yarl = "*"
 
 [[package]]
 name = "okta-expression-parser"
-version = "0.2.0"
+version = "0.3.0"
 description = "Returns a boolean by passing Okta profile data to an Okta Expression using Okta Expression Language"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "okta_expression_parser-0.2.0-py3-none-any.whl", hash = "sha256:af11074b3b1b47bfff67bb64534cfaff04ddebd98182bc587a5800b8e3b859b5"},
-    {file = "okta_expression_parser-0.2.0.tar.gz", hash = "sha256:2ad3f1fc33c3ce42f32c4c05ec25541d06ec730221689438df057f69eaf03e90"},
+    {file = "okta_expression_parser-0.3.0-py3-none-any.whl", hash = "sha256:389391b7af78fa71b2b81b275326a3a4c52a5d66b16a82ae512dcaf0c9ca5333"},
+    {file = "okta_expression_parser-0.3.0.tar.gz", hash = "sha256:68ad11a04b9db0fd4ac97820812a3c82904d56352b5573aec53ef5e3e883dfaf"},
 ]
 
 [package.dependencies]
@@ -1078,4 +1078,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "80dd814abdbf88f86d3323f36956836bebfc7bf223e31e6a2e36d28f47f042d8"
+content-hash = "9d5c89077dfac474330714e484389a3d4c2daeaa3f293965a10a741bd1162891"
