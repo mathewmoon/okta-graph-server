@@ -12,7 +12,7 @@ fastapi = "^0.109.2"
 okta = "^2.9.5"
 pydot = "^2.0.0"
 pydantic = "^2.6.1"
-okta-expression-parser = "^0.2.0"
+okta-expression-parser = "^0.3.0"
 uvicorn = "^0.27.0"
 loguru = "^0.7.2"
 
