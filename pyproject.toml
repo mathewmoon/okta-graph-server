@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "okta-graph"
-version = "0.1.0"
+version = "0.2.0"
 description = "An ASGI web application that provides tools for graphing uset groups based on user attributes and group rules in Okta."
 authors = ["Mathew Moon <me@mathewmoon.net>"]
 readme = "README.md"
