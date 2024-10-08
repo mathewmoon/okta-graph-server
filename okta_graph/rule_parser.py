@@ -207,6 +207,7 @@ class Parser:
                     group_ids=[] if profile_only else self.groupids,
                     log_to_stdout=False,
                     user_profile=self.profile,
+                    group_data=self._groups,
                 ).parse(exp)
                 LOGGER.debug(f"Expression: {exp} == {test}")
             except (RecursionError, Exception) as e:
