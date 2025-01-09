@@ -52,7 +52,7 @@ class GraphQuery(BaseModel):
         groups: Dict[str, Dict],
         rules: List[Dict[str, Dict]],
         as_base64: bool = True,
-        node_plugin: Callable[[Dict, Node], Node] | None = None
+        node_plugin: Callable[[Dict, Node], Node] | None = None,
     ) -> QueryResult:
         await self.do_query(groups, rules)
 

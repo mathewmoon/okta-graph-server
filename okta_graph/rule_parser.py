@@ -142,9 +142,9 @@ class Parser:
                 if id in manual_groups:
                     group_info["manually_managed"] = True
                     group_info["rule_name"] = f"Group {group_name} manual membership"
-                    group_info[
-                        "description"
-                    ] = "This group was manually passed in the query."
+                    group_info["description"] = (
+                        "This group was manually passed in the query."
+                    )
 
                 children, gids = await self.parse_group(gid=id, group_rules_only=True)
                 if children:

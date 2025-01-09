@@ -1,20 +1,27 @@
-[tool.poetry]
+[project]
 name = "okta-graph"
-version = "0.2.1"
+version = "0.2.3"
 description = "An ASGI web application that provides tools for graphing uset groups based on user attributes and group rules in Okta."
-authors = ["Mathew Moon <me@mathewmoon.net>"]
+authors = [
+    {name = "Mathew Moon", email = "<me@mathewmoon.net>"}
+]
 readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi~=0.109.2",
+    "okta~=2.9.5",
+    "pydot~=2.0.0",
+    "pydantic~=2.10.0",
+    "okta-expression-parser~=0.4.0",
+    "uvicorn~=0.27.0",
+    "loguru~=0.7.2",
+]
+
+[tool.poetry]
 packages = [{include = "okta_graph", from = "."}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.109.2"
-okta = "^2.9.5"
-pydot = "^2.0.0"
-pydantic = "^2.6.1"
-okta-expression-parser = "^0.4.0"
-uvicorn = "^0.27.0"
-loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "7.4.3"

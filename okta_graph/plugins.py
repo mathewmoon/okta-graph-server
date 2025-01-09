@@ -173,11 +173,22 @@ class AWSNodePlugin(NodePlugin):
         self.initialized = False
         super().__init__(*args, **kwargs)
 
+    def list_accounts(self):
+        accounts = []
+        paginator = self.org.get_paginator("list_accounts")
+        res = paginator.paginate()
+        for page in res:
+            accounts += page["Accounts"]
+
+        res = {x["Id"]: x["Name"] for x in accounts}
+
+        return res
+
     async def load(self):
         if self.dev_mode and not self.initialized:
             self.load_from_file()
 
-        accounts = {x["Id"]: x["Name"] for x in self.org.list_accounts()["Accounts"]}
+        accounts = self.list_accounts()
         groups = await self.get_aws_groups()
         ps = await self.get_permission_sets()
 

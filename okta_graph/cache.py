@@ -239,17 +239,31 @@ class OktaApiCache(OktaCache):
         Handles executing CRUD and aggregating results from pagination
         using the Okta API client.
         """
+        LOGGER.debug(f"Querying {action} with params {params}")
         items = []
-        res, pager, _ = await action(params)
+        res, pager, err = await action(params)
+        if err:
+            LOGGER.debug(f"Received Error: {err}")
+
+        LOGGER.debug(f"Received Response: {res}")
+        LOGGER.debug(f"Received Pager: {pager}")
+
         items += res
 
         if pager.has_next():
-            groups, _ = await pager.next()
-            items += groups
+            LOGGER.debug("Fetching more items...")
+            res, err = await pager.next()
+            if err:
+                LOGGER.error(f"Error fetching more items: {err}")
+            LOGGER.debug(f"Received Response: {res}")
+            items += res
 
         while pager.has_next():
-            groups, _ = await pager.next()
-            items += groups
+            res, err = await pager.next()
+            if err:
+                LOGGER.error(f"Error fetching more items: {err}")
+            LOGGER.debug(f"Received Response: {res}")
+            items += res
 
         return items
 
